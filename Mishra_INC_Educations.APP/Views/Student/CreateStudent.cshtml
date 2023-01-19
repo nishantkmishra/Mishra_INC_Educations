@@ -1,0 +1,49 @@
+﻿@model Mishra_INC_Educations.APP.Models.StudentViewModel
+@using Mishra_INC_Educations.Shared.Enums
+
+<div>
+    <h3>@ViewBag.SuccessMessage</h3>
+</div>
+<div>
+    <h3>@ViewBag.ErrorMessage</h3>
+</div>
+
+<form asp-action="CreateStudent" asp-controller="Student" method="post">
+    <div class="row">
+        <div class="col-lg-6 offset-3">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" />
+            <label asp-for="FatherName"></label>
+            <input asp-for="FatherName" class="form-control" />
+            <label asp-for="MotherName"></label>
+            <input asp-for="MotherName" class="form-control" />
+            <label asp-for="GuardianName"></label>
+            <input asp-for="GuardianName" class="form-control" />
+            <label asp-for="FatherEmail"></label>
+            <input asp-for="FatherEmail" class="form-control" />
+            <label asp-for="FatherMobileNo"></label>
+            <input asp-for="FatherMobileNo" class="form-control" />
+            <label asp-for="ClassStandred"></label>
+            <select asp-for="ClassStandred">
+                @foreach (var item in Enum.GetValues(typeof(ClassStandred)))
+                {
+                    <option>@item</option>
+                }
+            </select>
+            <label asp-for="ClassSections"></label>
+            <select asp-for="ClassSections">
+                @foreach (var item in Enum.GetValues(typeof(ClassSections)))
+                {
+                    <option>@item</option>
+                }
+            </select>
+            <label asp-for="Address"></label>
+            <textarea asp-for="Address" class="form-control"></textarea>
+            <label asp-for="PinCode"></label>
+            <input asp-for="PinCode" class="form-control" />
+            <button type="submit">Create</button>
+        </div>
+    </div>
+</form>
